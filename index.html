@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eliminar cuenta - Venecol Express</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+</head>
+<body>
+  <main class="container">
+    <div class="logo-section">
+      <img src="assets/logo.svg" alt="Logo Venecol Express" class="logo">
+      <div>
+        <h1>Eliminar tu cuenta de<br>Venecol Express</h1>
+        <p class="dev-info">Desarrollador: Fuente divina</p>
+      </div>
+    </div>
+
+    <p class="description">
+    <strong>Lamentamos que quieras cerrar tu cuenta. </strong><br>
+    Por favor, completá el formulario y gestionaremos <br> tu solicitud en un plazo de hasta 7 días hábiles.
+    </p>
+    <br>
+
+    <form class="form">
+        <form class="form" onsubmit="return validarContacto()">
+            <label for="contact">Teléfono o correo electrónico:</label>
+            <input type="text" id="contact" name="contact" placeholder="Escribe tu numero o correo asociado" required>
+
+            <label for="reason">Motivo de la baja (opcional):</label>
+            <textarea id="reason" name="reason" placeholder="Motivo de baja (opcional)"></textarea>
+
+            <button type="submit">Solicitar cierre de cuenta</button>
+        <form id="formulario" class="form" onsubmit="return validarContacto()">
+        </form>
+    <p class="footer-info">
+      <strong>Datos que serán eliminados:</strong> nombre, número telefónico, historial de transferencia y preferencias.
+    </p>
+  </main>
+    <script>
+    function validarContacto() {
+        const valor = document.getElementById("contact").value;
+        const contieneTelefono = /(?:\+?\d{6,15})/.test(valor);
+        const contieneEmail = /\S+@\S+\.\S+/.test(valor);
+
+        if (!contieneTelefono || !contieneEmail) {
+        alert("Por favor, incluye tanto el número de teléfono o el correo electrónico.");
+        return false;
+        }
+        return true;
+    }
+    </script>
+    <script>
+    function validarContacto() {
+    const input = document.getElementById("contact");
+    const valor = input.value.trim();
+    const contieneTelefono = /(?:\+?\d{6,15})/.test(valor);
+    const contieneEmail = /\S+@\S+\.\S+/.test(valor);
+
+    if (!contieneTelefono || !contieneEmail) {
+        alert("Por favor, ingresá un número de teléfono y un correo electrónico válido.");
+        return false;
+    }
+
+    return true;
+    }
+    </script>
+
+</body>
+</html>
